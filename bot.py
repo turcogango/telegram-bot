@@ -1,8 +1,9 @@
+import os
 from telegram import Update
 from telegram.ext import Application, CommandHandler, ContextTypes
-import os
 
-TOKEN = "TOKEN_BURAYA"
+# TOKEN'ı ortam değişkeninden al
+TOKEN = os.getenv("TOKEN")
 
 async def gunceladres(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("TSjQYavgJBGPr8iV3zH7qo1bx927qKVMwA")
