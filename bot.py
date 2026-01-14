@@ -2,23 +2,28 @@ import os
 from telegram import Update
 from telegram.ext import Application, CommandHandler, ContextTypes
 
-# TOKEN'ı doğrudan kod içine yazabiliriz, ama Railway için ortam değişkeni kullanacağız
-# Eğer tokenı kodda kullanmak istersen aşağıdaki satırı uncomment yap:
-# TOKEN = ""
-
-# Railway’de Shared Variable olarak eklediysen:
+# TOKEN ortam değişkeninden okunacak
 TOKEN = os.getenv("TOKEN")
 
+# /gunceladres komutu
 async def gunceladres(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("TSjQYavgJBGPr8iV3zH7qo1bx927qKVMwA")
 
+# /gandalf komutu (4 taç)
+async def gandalf(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text("👑👑👑👑")
+
 def main():
     if not TOKEN:
-        print("ERROR: Bot token is missing. Make sure the TOKEN variable is set!")
-        return
+        raise RuntimeError("TOKEN environment variable bulunamadı!")
 
+    # Bot uygulamasını oluştur
     app = Application.builder().token(TOKEN).build()
+
+    # Komutları ekle
     app.add_handler(CommandHandler("gunceladres", gunceladres))
+    app.add_handler(CommandHandler("gandalf", gandalf))
+
     print("Bot aktif...")
     app.run_polling()
 
