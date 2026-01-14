@@ -4,7 +4,7 @@ from telegram.ext import Application, CommandHandler, ContextTypes
 
 # TOKEN'ı doğrudan kod içine yazabiliriz, ama Railway için ortam değişkeni kullanacağız
 # Eğer tokenı kodda kullanmak istersen aşağıdaki satırı uncomment yap:
-# TOKEN = "8089178738:AAH4o72dviLlAzNUIUsfEbOcwUewDDSW1iU"
+# TOKEN = ""
 
 # Railway’de Shared Variable olarak eklediysen:
 TOKEN = os.getenv("TOKEN")
